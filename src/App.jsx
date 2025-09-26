@@ -10,9 +10,7 @@ const fetchData = async () => {
   return result.json();
 }
 
-
 function App() {
-
   const fetchPromise = fetchData();
 
   return (
