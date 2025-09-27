@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const IssueManagement = ({ fetchPromise }) => {
     const initialData = use(fetchPromise);
+    const [issues, setIssues] = useState(initialData);
 
     const [count, setCount] = useState(0);
     const [task, setTask] = useState([]);
@@ -25,6 +26,7 @@ const IssueManagement = ({ fetchPromise }) => {
         setResolved(resolved + 1);
         setCount(count - 1);
         setTask((work) => work.filter((kaj) => kaj.id !== taskDone.id));
+        setIssues((issues) => issues.filter((issue) => issue.id !== taskDone.id));
 
         toast.success(' Completed !')
 
@@ -36,16 +38,16 @@ const IssueManagement = ({ fetchPromise }) => {
 
             <h1 className="font-semibold text-2xl md:w-11/12 p-3 mx-auto">Customer Tickets</h1>
 
-            <div className="grid md:grid-cols-8 w-11/12 mx-auto">
-                <div className="grid md:grid-cols-2 col-span-6 gap-5 ">
+            <div className="grid md:grid-cols-8  md:w-11/12 mx-auto">
+                <div className="grid md:grid-cols-2 md:col-span-6 gap-5 ">
                     {
-                        initialData.map((issue) =>
+                        issues.map((issue) =>
                             < Card issue={issue} key={issue.id} handleClick={handleClick} />
                         )
                     }
                 </div>
                 <div className="md:col-span-2 p-5">
-                    <div className=" pb-4">
+                    <div className="w-full pb-4">
                         <h1 className="font-semibold text-2xl">Task Status</h1>
                         {task.length === 0 ? (
                             <p className="text-[#76767c]">Select a ticket to add to Task Status</p>
@@ -61,9 +63,10 @@ const IssueManagement = ({ fetchPromise }) => {
                         )}
 
                     </div>
-                    <div>
-                        <h1 className="font-semibold text-2xl  ">Resolved Task</h1>
-                        {resolvedTask.length === 0 ? <p className=" text-[#76767c]"> No resolved task yet.</p> : resolvedTask.map((work) => (
+                    <div className="w-full pb-4">
+                        <h1 className="font-semibold text-2xl ">Resolved Task</h1>
+                        {resolvedTask.length === 0 ? <p className=" text-[#76767c]"> No resolved task yet.</p> : 
+                        resolvedTask.map((work) => (
                             <div key={work.id} className="p-4 bg-gray-200 rounded shadow my-2">
                                 <h3 className="font-semibold pb-3">{work.title}</h3>
                                 <div className="flex justify-between">
