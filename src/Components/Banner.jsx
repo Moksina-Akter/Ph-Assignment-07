@@ -1,6 +1,7 @@
 import bgImg from '../assets/vector1.png'
 
-const Banner = ({count}) => {
+const Banner = ({count,resolved}) => {
+
     return (
         <div className=''>
             <div className='md:flex justify-between md:w-11/12 mx-auto gap-6 pt-10 mb-14 '>
@@ -20,7 +21,7 @@ const Banner = ({count}) => {
                         <img src={bgImg} alt="" className='md:w-full md:h-full w-32 h-60' />
                         <div className=" flex flex-col justify-center items-center flex-1">
                             <h1 className='text-2xl font-normal text-white'>Resolved</h1>
-                            <p className=' text-5xl font-semibold text-white'>0</p>
+                            <p className=' text-5xl font-semibold text-white'>{resolved}</p>
                         </div>
                         <img src={bgImg} alt="w-12 h-12" className='rotate-y-180 md:w-full md:h-full w-32 h-60' />
                     </div>
