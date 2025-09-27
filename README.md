@@ -8,18 +8,13 @@
 
 
 ## 3. What is the useState hook, and how does it work?
-### => **useState** is a React Hook that lets functional components manage state (data that changes over time).
-* It provides a state variable and a function to update it.
-* When the update function is called, React re-renders the component with the new state value.
-* Syntax: `const [value, setValue] = useState(initialValue)`
-* Example use cases: counters, form inputs, toggles, or any dynamic data in the UI.
-
+### => useState is a React Hook that lets functional components manage state (data that changes over time). It provides a state variable and a function to update it. When the update function is called, React re-renders the component with the new state value. Syntax: const [value, setValue] = useState(initialValue). It is used for dynamic UI data like counters, form inputs, or toggles.
 
 ## 4. How can you share state between components in React?
 ### => Sharing State Between Components in React:
-* **Lift State Up** – Move the shared state to the nearest common parent and pass it down as props to child components.
-* **Context API** – React’s built-in Context allows state sharing across multiple components without prop drilling. Useful for global state like themes or user authentication.
-* **State Management Libraries** – Libraries like Redux, Zustand, or Recoil manage and share state across the whole app, useful for large or complex applications.
+* **Lift State Up**: Move the shared state to the nearest common parent and pass it down as props to child components.
+* **Context API**:React’s built-in Context allows state sharing across multiple components without prop drilling. Useful for global state like themes or user authentication.
+* **State Management Libraries**:Libraries like Redux, Zustand, or Recoil manage and share state across the whole app, useful for large or complex applications.
 
 
 ## 5. How is event handling done in React?
